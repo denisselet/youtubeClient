@@ -1,0 +1,36 @@
+<div class="item">
+  <div class="image">
+    <img [src]="item.snippet.thumbnails.medium.url" alt="" height="123px" width="223px">
+  </div>
+  <div class="icons">
+    <div class="watch">
+      <div>
+
+        <img src="assets/svg/watch.svg" alt="watch" />
+      </div>
+      <div>
+
+        <span>{{item.statistics.viewCount}}</span>
+      </div>
+    </div>
+    <div class="like">
+      <img src="assets/svg/like.svg" alt="like">
+      <span>{{item.statistics.likeCount}}</span>
+
+    </div>
+    <div class="dislike">
+      <img src="assets/svg/dislike.svg" alt="dislike">
+      <span>{{item.statistics.dislikeCount}}</span>
+
+    </div>
+    <div class="cards">
+      <img src="assets/svg/cards.svg" alt="cards">
+      <span>{{item.statistics.commentCount}}</span>
+
+    </div>
+  </div>
+  <div class="title">{{item.snippet.localized.title}}</div>
+  <div class="more">
+    <button class="but-more">more...</button>
+  </div>
+</div>

@@ -54,16 +54,16 @@
   height: 24px;
   width: 80px;
   color: white;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .button-search:hover {
-  background-color: #5EA2FF;
+  background-color: #5ea2ff;
   cursor: pointer;
 }
 
 .button-search:active {
-  background-color: #B1B1B1;
+  background-color: #b1b1b1;
 }
 
 .logo-yt {
@@ -72,11 +72,50 @@
 }
 
 .setting {
-  transition: .2s;
-
+  transition: 0.2s;
+  border: none;
+  padding: 0;
+  background-color: #e5e5e5;
 }
 
 .setting:hover {
   cursor: pointer;
 }
 
+.sort {
+  height: 50px;
+  background-color: #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  width: 100%;
+}
+
+.sort {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #2f80ed;
+}
+
+.sort span {
+  margin-right: 10px;
+}
+
+.title {
+  color: #929292;
+}
+
+.sort-but {
+  text-decoration-line: underline;
+  color: #2f80ed;
+  cursor: pointer;
+  user-select: none;
+}
+
+.input-sort {
+  border: none;
+}

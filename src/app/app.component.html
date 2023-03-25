@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header (sort)="sort($event)" (addResult)="addData()"></app-header>
 <app-search-results
-  [items]="items"
+  [items]="items | sortFn:sortingType"
 ></app-search-results>

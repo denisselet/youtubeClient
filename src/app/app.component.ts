@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { SearchItem } from './search/search-item.model';
+import { SearchItem } from './models/search-item.model';
 import { default as data } from './data/results.json';
+import { SortTypes } from './models/sort.model';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +11,19 @@ import { default as data } from './data/results.json';
 export class AppComponent {
   title = 'youtubeClient';
 
-  items: SearchItem[] = data.items;
+  items: SearchItem[] | [] = [];
+
+  sortingType: { type: SortTypes; orderAsc: boolean, term: string } = {
+    type: 'date',
+    orderAsc: true,
+    term: ''
+  };
+
+  sort(event: { type: SortTypes; orderAsc: boolean; term: string }) {
+    this.sortingType = event;
+  }
+
+  addData() {
+    this.items = data.items;
+  }
 }

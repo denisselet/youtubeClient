@@ -6,19 +6,19 @@ import { AppComponent } from './app.component';
 import { SearchItemComponent } from './search/search-item/search-item.component';
 import { SearchResultsComponent } from './search/search-results/search-results.component';
 import { HeaderComponent } from './header/header.component';
+import { SortPipe } from './pipes/sort.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchItemComponent,
     SearchResultsComponent,
-    HeaderComponent
+    HeaderComponent,
+    SortPipe,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

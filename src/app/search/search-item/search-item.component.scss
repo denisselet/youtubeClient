@@ -9,6 +9,18 @@
   align-content: space-around;
 }
 
+.red {
+  border-bottom-color: red;
+}
+
+.yellow {
+  border-bottom-color: yellow;
+}
+
+.green {
+  border-bottom-color: green;
+}
+
 .image {
   height: 123px;
   width: 223px;
@@ -21,11 +33,11 @@
   margin: 21px auto;
   display: flex;
   justify-content: space-between;
-  font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 10px;
-line-height: 12px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
 }
 
 .watch span,
@@ -35,7 +47,10 @@ line-height: 12px;
   margin-left: 5px;
 }
 
-.watch, .like, .dislike, .cards {
+.watch,
+.like,
+.dislike,
+.cards {
   display: flex;
   align-items: center;
 }
@@ -68,15 +83,14 @@ line-height: 12px;
   border-radius: 5px;
   border: none;
   color: white;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .but-more:hover {
-  background-color: #5EA2FF;
+  background-color: #5ea2ff;
   cursor: pointer;
 }
 
 .but-more:active {
-  background-color: #B1B1B1;
+  background-color: #b1b1b1;
 }
-

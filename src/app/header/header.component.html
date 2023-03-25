@@ -6,13 +6,15 @@
       </div>
 
       <div class="input-but">
-        <input type="text" placeholder="Kuji Podcast" class="input" />
-        <button class="button-search">search</button>
+        <input type="text" placeholder="Angular" class="input" />
+        <button type="submit" class="button-search" (click)="submit()">
+          search
+        </button>
       </div>
 
-      <div class="setting">
+      <button class="setting" (click)="settingShow = !settingShow">
         <img src="assets/svg/setting.svg" alt="setting" />
-      </div>
+      </button>
     </div>
 
     <div class="name-component">
@@ -21,5 +23,23 @@
       </div>
       <img src="assets/svg/logo-user.svg" alt="user" />
     </div>
+  </div>
+</div>
+
+<div class="sort" *ngIf="settingShow">
+  <div class="block">
+    <span class="title">Sorting by: </span>
+    <span
+      class="sort-but"
+      (click)="type = 'date'; orderAsc = !orderAsc; sendSort()"
+      >date</span
+    >
+    <span
+      class="sort-but"
+      (click)="type = 'countOfViews'; orderAsc = !orderAsc; sendSort()"
+      >count of view</span
+    >
+    <span>by word or sentance</span>
+    <input type="text" class="input-sort" [(ngModel)]="term" (ngModelChange)="sendSort()" />
   </div>
 </div>

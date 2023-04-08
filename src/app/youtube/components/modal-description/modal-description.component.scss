@@ -1,0 +1,112 @@
+.modal-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.back {
+  height: 32px;
+  width: 32px;
+  background: #2f80ed;
+  border-radius: 5px 0px 0px 5px;
+  color: white;
+  font-size: 32px;
+  cursor: pointer;
+  font-weight: 900;
+  display: flex;
+}
+
+.back span {
+  margin: auto;
+}
+
+.modal-description {
+  width: 1165px;
+  height: 461px;
+  display: flex;
+}
+
+.image {
+  border: 2px solid red;
+  width: 729px;
+}
+
+.header-modal {
+  height: 66px;
+}
+
+.header-modal .title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+
+  color: #000000;
+}
+
+.header-modal .date {
+  font-size: 10px;
+  line-height: 12px;
+  text-align: right;
+  color: #828282;
+}
+
+.details {
+  padding: 35px;
+  width: 436px;
+  display: flex;
+  flex-direction: column;
+  min-width: 100px;
+  background: #e5e5e5;
+  box-shadow: 5px 5px 20px rgba(51, 51, 51, 0.25);
+  border-radius: 0px 5px 5px 0px;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-bottom-color: #2f80ed;
+}
+
+.description {
+  height: 300px;
+}
+
+.description p {
+  margin: 0 0;
+
+  color: black;
+
+    font-family: "Roboto";
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.description span {
+  color: #828282;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.icons {
+  height: 13px;
+  width: 223px;
+  margin: 21px auto;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.watch span,
+.like span,
+.dislike span,
+.cards span {
+  margin-left: 5px;
+}
+
+.watch,
+.like,
+.dislike,
+.cards {
+  display: flex;
+  align-items: center;
+}

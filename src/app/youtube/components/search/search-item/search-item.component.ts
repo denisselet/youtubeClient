@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SearchItem } from '../../models/search-item.model';
+import { SearchItem } from './../../../models/search-item.model';
 import { daysInMs } from 'src/app/constants/date';
 
 @Component({
@@ -22,3 +22,5 @@ export class SearchItemComponent implements OnInit {
     return (Math.floor((dateNowMs - publishedMs) / daysInMs));
   }
 }
+export { SearchItem };
+

@@ -1,7 +1,5 @@
 <app-header (sort)="sort($event)" (addResult)="addData()"></app-header>
-<app-search-results
-  [items]="items | sortFn:sortingType"
-></app-search-results>
+<app-search-results [items]="items | sortFn : sortingType"></app-search-results>
 <!-- <app-modal></app-modal> -->
 
-<app-modal-description></app-modal-description>
+<!-- <app-modal-description></app-modal-description> -->

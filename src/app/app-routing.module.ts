@@ -5,10 +5,10 @@ import { NotFoundComponent } from './core/pages/not-found/not-found.component';
 const routes: Routes = [
   { path: '', redirectTo: 'youtube', pathMatch: 'full' },
 
-  // {
-  //   path: 'youtube',
-  //   loadChildren: () => import('./youtube/').then((m) => m.CustomersModule),
-  // },
+  {
+    path: 'youtube',
+    loadChildren: () => import('./youtube/').then((m) => m.CustomersModule),
+  },
 
   {
     path: '**',

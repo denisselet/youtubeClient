@@ -1,17 +1,19 @@
 <div class="wrapper-modal">
   <div class="modal">
+    <form #loginForm="ngForm" (ngSubmit)="onFormSubmit(loginForm)">
     <div class="modal-header"><span>Login</span></div>
     <div class="login">
       <span>login</span>
-      <input type="text" />
+      <input type="text" name='username' ngModel />
     </div>
     <div class="password">
       <span>password </span>
-      <input type="text" />
+      <input type="password" name="password" ngModel />
     </div>
     <div class="buttons">
       <button class="reg-but">Registration</button>
-      <button class="login-but">Login</button>
+      <button class="login-but" type="submit">Login</button>
     </div>
+  </form>
   </div>
 </div>

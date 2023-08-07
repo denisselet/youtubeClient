@@ -8,15 +8,18 @@
   width: 32px;
   background: #2f80ed;
   border-radius: 5px 0px 0px 5px;
-  color: white;
-  font-size: 32px;
   cursor: pointer;
   font-weight: 900;
   display: flex;
 }
 
-.back span {
+.back button {
+  color: white;
+  font-size: 32px;
   margin: auto;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
 
 .modal-description {
@@ -25,13 +28,14 @@
   display: flex;
 }
 
-.image {
-  border: 2px solid red;
+.image img {
   width: 729px;
+  border-bottom-left-radius: 5px;
 }
 
 .header-modal {
   height: 66px;
+  margin-bottom: 15px;
 }
 
 .header-modal .title {
@@ -67,12 +71,15 @@
   height: 300px;
 }
 
+.de {
+  height: 270px;
+  overflow: auto;
+}
+
 .description p {
   margin: 0 0;
-
   color: black;
-
-    font-family: "Roboto";
+  font-family: "Roboto";
   font-weight: 400;
   font-size: 14px;
 }
@@ -110,3 +117,4 @@
   display: flex;
   align-items: center;
 }
+

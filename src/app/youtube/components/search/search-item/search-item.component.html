@@ -38,6 +38,6 @@
   </div>
   <div class="title">{{ item.snippet.localized.title }}</div>
   <div class="more">
-    <button class="but-more">more...</button>
+    <button class="but-more" (click)="navigateToItemDetail(item.id)">more...</button>
   </div>
 </div>

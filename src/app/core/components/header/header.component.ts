@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { SortTypes } from '../models/sort.model';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/services/auth.service';
+import { SortTypes } from 'src/app/youtube/models/sort.model';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +9,8 @@ import { SortTypes } from '../models/sort.model';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
+  constructor(private route: Router, private auth: AuthService) {}
+
   @Output() sort = new EventEmitter<{ type: SortTypes; orderAsc: boolean; term: string }>();
 
   @Output() addResult = new EventEmitter();
@@ -25,5 +29,10 @@ export class HeaderComponent {
 
   submit() {
     this.addResult.emit();
+  }
+
+  logout() {
+    this.auth.logout();
+    this.route.navigate(['login']);
   }
 }

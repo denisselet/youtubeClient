@@ -1,0 +1,50 @@
+<div class="modal-wrapper">
+  <div class="back">
+    <button (click)="navigateToBack()"><</button>
+  </div>
+  <div class="modal-description">
+    <div class="image">
+      <img [src]="item.snippet.thumbnails.maxres.url" alt="" height="461px" width="729px">
+    </div>
+    <div class="details">
+      <div class="header-modal">
+        <div class="title">
+          {{ item.snippet.localized.title }}
+        </div>
+        <div class="date">
+          {{ item.snippet.publishedAt | date : 'fullDate' }}
+        </div>
+      </div>
+
+      <div class="description">
+        <p class="desc-title">Description:</p>
+        <div class="de">
+
+          <span class="desc">{{item.snippet.localized.description}}</span>
+        </div>
+      </div>
+
+        <div class="icons">
+          <div class="watch">
+            <div>
+              <img src="assets/svg/watch.svg" alt="watch" />
+            </div>
+            <div>
+              <span>{{item.statistics.viewCount}}</span>
+            </div>
+          </div>
+          <div class="like">
+            <img src="assets/svg/like.svg" alt="like" />
+            <span>{{item.statistics.likeCount}}</span>
+          </div>
+          <div class="dislike">
+            <img src="assets/svg/dislike.svg" alt="dislike" />
+            <span>{{item.statistics.dislikeCount}}</span>
+          </div>
+          <div class="cards">
+            <img src="assets/svg/cards.svg" alt="cards" />
+            <span>{{item.statistics.commentCount}}</span>
+          </div>
+    </div>
+  </div>
+</div>

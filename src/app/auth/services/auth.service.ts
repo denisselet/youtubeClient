@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -10,15 +9,13 @@ export class AuthService {
 
   public isLoggedIn$ = this.isLoggedInSubject.asObservable();
 
-  constructor(private router: Router) { }
-
   login(): void {
-    this.isLoggedInSubject.next(true);
+    // this.isLoggedInSubject.next(true);
     localStorage.setItem('auth', 'example');
   }
 
   logout(): void {
-    this.isLoggedInSubject.next(false);
+    // this.isLoggedInSubject.next(false);
     localStorage.removeItem('auth');
   }
 

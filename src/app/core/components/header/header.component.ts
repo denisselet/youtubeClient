@@ -17,9 +17,9 @@ export class HeaderComponent {
 
   constructor(
     private route: Router,
-    private auth: AuthService
+    private authService: AuthService
   ) {
-    this.isLoggedIn$ = this.auth.isLoggedIn$;
+    this.isLoggedIn$ = this.authService.isLoggedIn$;
   }
 
   @Output() sort = new EventEmitter<{
@@ -47,8 +47,13 @@ export class HeaderComponent {
   }
 
   logout() {
-    this.auth.logout();
+    this.authService.logout();
     this.route.navigate(['login']);
+  }
+
+  login() {
+    this.authService.login();
+    this.route.navigate(['youtube']);
   }
 
   onInputChanged() {

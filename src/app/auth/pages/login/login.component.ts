@@ -1,24 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { passwordValidator } from './password.validator';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
-  constructor(private auth: AuthService, private router: Router) {}
+export class LoginComponent {
+  loginForm = new FormGroup({
+    login: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, passwordValidator()])
+  });
 
-  onFormSubmit(loginForm: NgForm) {
-    console.log(loginForm);
-    this.auth.login();
-    this.router.navigate(['/youtube']);
+  constructor(private auth: AuthService, private router: Router) {
   }
 
-  ngOnInit(): void {
-    const isLoggedIn = this.auth.isLoggedIn();
-    if (isLoggedIn) this.router.navigate(['youtube']);
+  onSubmit() {
+    this.auth.login();
+    this.router.navigate(['/youtube']);
+    const formData = { ...this.loginForm.value };
+    console.log(formData);
   }
 }

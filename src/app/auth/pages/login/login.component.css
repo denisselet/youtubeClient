@@ -1,5 +1,5 @@
 .wrapper-modal {
-   height: 100%;
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -8,7 +8,6 @@
 .modal {
   padding: 30px 20px;
   background-color: #F2F2F2;
-
 }
 
 .modal-header {
@@ -19,8 +18,8 @@
   height: 22px;
 }
 
-.modal-header span{
-  font-family: 'Roboto';
+.modal-header span {
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
@@ -43,7 +42,7 @@
 }
 
 .login span, .password span {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-size: 10px;
   line-height: 12px;
   display: flex;
@@ -83,16 +82,12 @@
   color: red;
 }
 
-#password, #login {
-  &.ng-dirty.ng-invalid {
-    border: 1px solid red;
-  }
-
-  &.ng-touched.ng-pristine  {
-    border: 1px solid red;
-  }
-
-  &.ng-dirty.ng-valid {
-    border: 1px solid green;
-  }
+#password.ng-dirty.ng-invalid, #login.ng-dirty.ng-invalid {
+  border: 1px solid red;
 }
+#password.ng-touched.ng-pristine, #login.ng-touched.ng-pristine {
+  border: 1px solid red;
+}
+#password.ng-dirty.ng-valid, #login.ng-dirty.ng-valid {
+  border: 1px solid green;
+}/*# sourceMappingURL=login.component.css.map */

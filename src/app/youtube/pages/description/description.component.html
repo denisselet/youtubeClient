@@ -1,4 +1,5 @@
-<div class="modal-wrapper">
+<div *ngIf="isLoading">Loading...</div>
+<div class="modal-wrapper" *ngIf="!isLoading">
   <div class="back">
     <button (click)="navigateToBack()"><</button>
   </div>
@@ -9,7 +10,7 @@
     <div class="details">
       <div class="header-modal">
         <div class="title">
-          {{ item.snippet.localized.title }}
+          {{ item.snippet.title }}
         </div>
         <div class="date">
           {{ item.snippet.publishedAt | date : 'fullDate' }}
@@ -20,7 +21,7 @@
         <p class="desc-title">Description:</p>
         <div class="de">
 
-          <span class="desc">{{item.snippet.localized.description}}</span>
+          <span class="desc">{{item.snippet.description}}</span>
         </div>
       </div>
 
@@ -39,7 +40,7 @@
           </div>
           <div class="dislike">
             <img src="assets/svg/dislike.svg" alt="dislike" />
-            <span>{{item.statistics.dislikeCount}}</span>
+            <span></span>
           </div>
           <div class="cards">
             <img src="assets/svg/cards.svg" alt="cards" />

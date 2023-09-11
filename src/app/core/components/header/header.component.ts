@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { SortTypes } from 'src/app/youtube/models/sort.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -9,11 +10,25 @@ import { SortTypes } from 'src/app/youtube/models/sort.model';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  constructor(private route: Router, private auth: AuthService) {}
 
-  @Output() sort = new EventEmitter<{ type: SortTypes; orderAsc: boolean; term: string }>();
+  inputValue = '';
 
-  @Output() addResult = new EventEmitter();
+  isLoggedIn$: Observable<boolean>;
+
+  constructor(
+    private route: Router,
+    private auth: AuthService
+  ) {
+    this.isLoggedIn$ = this.auth.isLoggedIn$;
+  }
+
+  @Output() sort = new EventEmitter<{
+    type: SortTypes;
+    orderAsc: boolean;
+    term: string;
+  }>();
+
+  @Output() inputString = new EventEmitter();
 
   settingShow = false;
 
@@ -24,15 +39,19 @@ export class HeaderComponent {
   orderAsc = true;
 
   sendSort() {
-    this.sort.emit({ type: this.type, orderAsc: this.orderAsc, term: this.term });
-  }
-
-  submit() {
-    this.addResult.emit();
+    this.sort.emit({
+      type: this.type,
+      orderAsc: this.orderAsc,
+      term: this.term,
+    });
   }
 
   logout() {
     this.auth.logout();
     this.route.navigate(['login']);
+  }
+
+  onInputChanged() {
+    this.inputString.emit(this.inputValue);
   }
 }

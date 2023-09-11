@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Provider } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from '../app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -11,8 +11,17 @@ import { MainComponent } from '../youtube/pages/main/main.component';
 import { ModalDescriptionComponent } from '../youtube/pages/description/description.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/core.interceptor';
+import { AuthService } from './../auth/services/auth.service';
+import { AdminComponent } from './pages/admin/admin.component';
 
+const INTERCEPTOR_PROVIDER: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  useClass: AuthInterceptor,
+  multi: true
+};
 
 @NgModule({
   declarations: [
@@ -25,7 +34,9 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     MainComponent,
     ModalDescriptionComponent,
+    AdminComponent,
   ],
-  imports: [CommonModule, BrowserModule, AppRoutingModule, FormsModule],
+  imports: [CommonModule, BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule],
+  providers: [INTERCEPTOR_PROVIDER, AuthService]
 })
 export class CoreModule {}

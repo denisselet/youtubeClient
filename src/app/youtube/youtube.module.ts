@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { YoutubeRoutingModule } from './youtube-routing.module';
+import { DataService } from './services/data.service';
 
 
 @NgModule({
@@ -9,6 +10,7 @@ import { YoutubeRoutingModule } from './youtube-routing.module';
   imports: [
     CommonModule,
     YoutubeRoutingModule
-  ]
+  ],
+  providers:[DataService]
 })
 export class YoutubeModule { }

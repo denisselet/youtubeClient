@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { default as data } from '../../../data/results.json';
 import { SearchItem } from '../../models/search-item.model';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { DataService } from '../../services/data.service';
+import { SearchResponse } from '../../models/search-response.model';
 
 
 @Component({
@@ -11,7 +12,9 @@ import { Location } from '@angular/common';
   styleUrls: ['./description.component.scss'],
 })
 export class ModalDescriptionComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private location: Location) {}
+  isLoading = true;
+
+  constructor(private route: ActivatedRoute, private location: Location, private dataService: DataService) {}
 
   item: SearchItem;
 
@@ -19,10 +22,12 @@ export class ModalDescriptionComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      this.selectedId = params.get('selectedId')!;
-      this.item = data.items.find((i) => i.id === params.get('selectedId'))!;
-      console.log(this.item);
+      this.selectedId = (params.get('selectedId') as string);
 
+      this.dataService.getOneVideo(this.selectedId).subscribe((resp) => {
+        this.item = (resp as SearchResponse).items[0];
+        this.isLoading = false;
+      });
     });
   }
 

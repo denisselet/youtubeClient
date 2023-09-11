@@ -1,0 +1,79 @@
+.wrapper-modal {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.modal {
+  padding: 30px 20px;
+  background-color: #F2F2F2;
+}
+
+.modal-header {
+  width: 310px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  height: 22px;
+}
+
+.modal-header span {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+.title, .description, .img, .link {
+  width: 310px;
+  margin: 10px 0;
+}
+
+.title input, .description input, .img input, .link input {
+  background: #E0E0E0;
+  border: none;
+  height: 37px;
+  width: 294px;
+  padding-left: 10px;
+}
+
+.submit {
+  height: 30px;
+  background: #2F80ED;
+  border-radius: 5px;
+  border: none;
+  width: 120px;
+  cursor: pointer;
+  color: white;
+  float: right;
+}
+
+.errors {
+  color: red;
+}
+
+#title.ng-dirty.ng-invalid, #img.ng-dirty.ng-invalid, #link.ng-dirty.ng-invalid {
+  border: 1px solid red;
+}
+#title.ng-touched.ng-pristine, #img.ng-touched.ng-pristine, #link.ng-touched.ng-pristine {
+  border: 1px solid red;
+}
+#title.ng-dirty.ng-valid, #img.ng-dirty.ng-valid, #link.ng-dirty.ng-valid {
+  border: 1px solid green;
+}
+
+#description.ng-dirty.ng-invalid {
+  border: 1px solid red;
+}
+#description.ng-dirty.ng-valid {
+  border: 1px solid green;
+}
+
+#date {
+  margin: 10px;
+}/*# sourceMappingURL=admin.component.css.map */

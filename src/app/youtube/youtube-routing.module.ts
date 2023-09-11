@@ -4,8 +4,8 @@ import { MainComponent } from './pages/main/main.component';
 import { ModalDescriptionComponent } from './pages/description/description.component';
 
 const routes: Routes = [
-  { path: '', component: MainComponent },
-  { path: ':selectedId', component: ModalDescriptionComponent }
+  { path: ':selectedId', component: ModalDescriptionComponent },
+  { path: '', component: MainComponent }
 ];
 
 @NgModule({

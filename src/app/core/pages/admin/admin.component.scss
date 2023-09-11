@@ -30,11 +30,12 @@
   color: #000000;
 }
 
-.login, .password {
+.title, .description, .img, .link {
   width: 310px;
+  margin: 10px 0;
 }
 
-.login input, .password input {
+.title input, .description input, .img input, .link input {
   background: #E0E0E0;
   border: none;
   height: 37px;
@@ -42,34 +43,7 @@
   padding-left: 10px;
 }
 
-.login span, .password span {
-  font-family: 'Roboto';
-  font-size: 10px;
-  line-height: 12px;
-  display: flex;
-  align-items: center;
-  color: #828282;
-}
-
-.buttons {
-  margin-top: 22px;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.reg-but {
-  height: 30px;
-  font-size: 12px;
-  line-height: 14px;
-  text-decoration-line: underline;
-  color: #2F80ED;
-  border: none;
-  width: 120px;
-  background-color: #F2F2F2;
-  cursor: pointer;
-}
-
-.login-but {
+.submit {
   height: 30px;
   background: #2F80ED;
   border-radius: 5px;
@@ -77,13 +51,14 @@
   width: 120px;
   cursor: pointer;
   color: white;
+  float: right;
 }
 
 .errors {
   color: red;
 }
 
-#password, #login {
+#title, #img, #link {
   &.ng-dirty.ng-invalid {
     border: 1px solid red;
   }
@@ -95,4 +70,18 @@
   &.ng-dirty.ng-valid {
     border: 1px solid green;
   }
+}
+
+ #description {
+    &.ng-dirty.ng-invalid {
+    border: 1px solid red;
+  }
+
+    &.ng-dirty.ng-valid {
+    border: 1px solid green;
+  }
+}
+
+#date {
+  margin: 10px;
 }

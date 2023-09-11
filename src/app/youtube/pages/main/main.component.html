@@ -1,0 +1,3 @@
+<app-header (sort)="sort($event)" (inputString)="receivedInput($event)"></app-header>
+<app-search-results [items]="items | sortFn : sortingType"></app-search-results>
+

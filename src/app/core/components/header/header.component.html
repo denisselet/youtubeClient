@@ -6,10 +6,7 @@
       </div>
 
       <div class="input-but">
-        <input type="text" placeholder="Angular" class="input" />
-        <button type="submit" class="button-search" (click)="submit()">
-          search
-        </button>
+        <input type="text" [(ngModel)]="inputValue" (keyup)="onInputChanged()" class="input" />
       </div>
 
       <button class="setting" (click)="settingShow = !settingShow">
@@ -24,6 +21,10 @@
       <img src="assets/svg/logo-user.svg" alt="user" />
     </div>
   </div>
+  <button class="logout" *ngIf="(isLoggedIn$ | async)" (click)="logout()">Logout</button>
+  <button class="logout" *ngIf="(isLoggedIn$ | async) === false" (click)="login()">Login</button>
+  <p *ngIf="(isLoggedIn$ | async); else notLoggedIn">You are logged in.</p>
+      <ng-template #notLoggedIn><p>You are not logged in.</p></ng-template>
 </div>
 
 <div class="sort" *ngIf="settingShow">

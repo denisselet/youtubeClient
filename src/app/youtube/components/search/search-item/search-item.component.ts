@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SearchItem } from '../../models/search-item.model';
+import { SearchItem } from './../../../models/search-item.model';
 import { daysInMs } from 'src/app/constants/date';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-item',
@@ -8,6 +9,8 @@ import { daysInMs } from 'src/app/constants/date';
   styleUrls: ['./search-item.component.scss'],
 })
 export class SearchItemComponent implements OnInit {
+  constructor(private router: Router) {}
+
   @Input() item: SearchItem;
 
   date = 0;
@@ -21,4 +24,10 @@ export class SearchItemComponent implements OnInit {
     const dateNowMs = Date.now();
     return (Math.floor((dateNowMs - publishedMs) / daysInMs));
   }
+
+  navigateToItemDetail(selectedId: string) {
+    this.router.navigate(['youtube', selectedId]);
+  }
 }
+export { SearchItem };
+

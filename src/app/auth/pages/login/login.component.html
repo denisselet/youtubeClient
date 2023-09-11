@@ -1,0 +1,41 @@
+<div class="wrapper-modal">
+  <div class="modal">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="modal-header"><span>Login</span></div>
+    <div class="login">
+      <label for="login">login</label>
+      <input id="login" type="text" name='login' formControlName="login" ngModel />
+      <div class="errors" *ngIf="loginForm.get('login')?.touched && !loginForm.get('login')?.dirty">
+        Please enter a login email
+      </div>
+      <div class="errors" *ngIf="loginForm.get('login')?.touched && loginForm.get('login')?.dirty && loginForm.get('login')?.invalid">
+        The login email is invalid
+      </div>
+    </div>
+
+    <div class="password">
+      <label for="password">password </label>
+      <input id="password" type="password" name="password" formControlName="password" ngModel />
+      <div class="errors" *ngIf="loginForm.get('password')?.hasError('passwordRequirements') && loginForm.get('password')?.dirty">
+        Your password isn't strong enough:
+        <ul>
+
+          <li *ngIf="loginForm.get('password')?.hasError('minLength')">At least 8 characters</li>
+          <li *ngIf="loginForm.get('password')?.hasError('containsUppercase')">Does not contain a  uppercase</li>
+          <li *ngIf="loginForm.get('password')?.hasError('containsLowercase')">Does not contain a  lowercase</li>
+          <li *ngIf="loginForm.get('password')?.hasError('containsDigit')">Does not contain a numbers</li>
+          <li *ngIf="loginForm.get('password')?.hasError('containsSpecialChar')">Does not contain special characters, e.g., ! @ # ? ]</li>
+        </ul>
+      </div>
+      <div class="errors" *ngIf="loginForm.get('password')?.touched && !loginForm.get('password')?.dirty">
+        Please enter a password
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="reg-but">Registration</button>
+      <button [disabled]="loginForm.invalid" class="login-but" type="submit">Login</button>
+      <!-- <button class="login-but" type="submit">Login</button> -->
+    </div>
+  </form>
+  </div>
+</div>

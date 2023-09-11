@@ -1,0 +1,63 @@
+<div class="wrapper-modal">
+  <div class="modal">
+    <form [formGroup]="adminForm" (ngSubmit)="onSubmit()">
+    <div class="modal-header"><span>Create new card</span></div>
+    <div class="title">
+      <label for="title">Title</label>
+      <input id="title" type="text" name='title' formControlName="title" ngModel />
+      <div class="errors" *ngIf="adminForm.get('title')?.errors?.required && adminForm.get('title')?.touched">
+        Please enter a title
+      </div>
+      <div class="errors" *ngIf="adminForm.get('title')?.errors?.minlength">
+        The title is too short
+      </div>
+      <div class="errors" *ngIf="adminForm.get('title')?.errors?.maxlength">
+        The title is too long
+      </div>
+    </div>
+
+    <div class="description">
+      <label for="description">Description</label>
+      <input id="description" type="text" name='description' formControlName="description" ngModel />
+      <div class="errors" *ngIf="adminForm.get('description')?.errors?.maxlength">
+        The title is too long
+      </div>
+    </div>
+
+    <div class="img">
+      <label for="img">Img</label>
+      <input id="img" type="text" name='img' formControlName="img" ngModel />
+      <div class="errors" *ngIf="adminForm.get('img')?.errors?.required && adminForm.get('img')?.touched">
+        Please enter a link to the image
+      </div>
+      <div class="errors" *ngIf="adminForm.get('img')?.hasError('invalidUrl') && adminForm.get('img')?.dirty">
+        The image link is invalid
+      </div>
+    </div>
+
+    <div class="link">
+      <label for="link">Link video</label>
+      <input id="link" type="text" name='link' formControlName="link" ngModel />
+      <div class="errors" *ngIf="adminForm.get('link')?.errors?.required && adminForm.get('link')?.touched">
+        Please enter a link to the video
+      </div>
+      <div class="errors" *ngIf="adminForm.get('link')?.hasError('invalidUrl') && adminForm.get('link')?.dirty">
+        The video link is invalid
+      </div>
+    </div>
+
+    <div class="date">
+      <label for="date">Creation date</label>
+      <input id="date" type="date" name='date' formControlName="date" ngModel />
+      <div class="errors" *ngIf="adminForm.get('date')?.errors?.required && adminForm.get('date')?.touched">
+        Please enter a creation date
+      </div>
+      <div class="errors" *ngIf="adminForm.get('date')?.hasError('invalidDate') && adminForm.get('date')?.dirty">
+        The date is invalid
+      </div>
+    </div>
+
+    <button type="submit" class="submit" [disabled]="adminForm.invalid">Create card</button>
+  </form>
+  </div>
+</div>

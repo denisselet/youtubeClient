@@ -16,6 +16,9 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/core.interceptor';
 import { AuthService } from './../auth/services/auth.service';
 import { AdminComponent } from './pages/admin/admin.component';
+// import { counterReducer } from '../redux/reducers/app.reducer';
+// import { StoreModule } from '@ngrx/store';
+
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -36,7 +39,9 @@ const INTERCEPTOR_PROVIDER: Provider = {
     ModalDescriptionComponent,
     AdminComponent,
   ],
-  imports: [CommonModule, BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule],
+  imports: [CommonModule, BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule,
+    // StoreModule.forRoot({ store: counterReducer }, {}),
+  ],
   providers: [INTERCEPTOR_PROVIDER, AuthService]
 })
 export class CoreModule {}

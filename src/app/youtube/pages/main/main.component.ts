@@ -17,7 +17,7 @@ import { selectPosts } from 'src/app/redux/selectors/core.selector';
 export class MainComponent {
   inputObservable$: Observable<string> | Observable<object>;
 
-  items$: Observable<SearchItem[]> | null = this.store.select(selectPosts);
+  items$: Observable<SearchItem[]> = this.store.select(selectPosts);
 
   private inputSubject = new Subject<string>();
 

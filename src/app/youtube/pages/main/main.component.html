@@ -1,4 +1,2 @@
 <app-header (sort)="sort($event)" (inputString)="receivedInput($event)"></app-header>
-<app-search-results [items]="items$ | async"></app-search-results>
-
- <!-- | sortFn : sortingType -->
+<app-search-results [items]="(items$ | async)! | sortFn : sortingType"></app-search-results>

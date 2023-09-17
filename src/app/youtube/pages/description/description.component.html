@@ -2,7 +2,7 @@
   <div class="back">
     <button (click)="navigateToBack()"><</button>
   </div>
-  <div class="modal-description" *ngIf="item$ | async">
+  <div class="modal-description">
     <div class="image">
       <img [src]="item.snippet.thumbnails.maxres.url" alt="" height="461px" width="729px">
     </div>

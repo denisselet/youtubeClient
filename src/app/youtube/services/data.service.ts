@@ -33,8 +33,6 @@ export class DataService {
   fetchData2(
     ids: { items?: Array<{ etag: string; kind: string; id: { videoId: string; kind: string } }> }
   ) {
-    console.log(ids);
-
     const tt = ids.items?.map((i) => i.id.videoId).join(',');
     const params2 = new HttpParams()
       .set('id', tt || '123')

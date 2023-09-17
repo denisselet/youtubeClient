@@ -23,7 +23,7 @@
         <span>{{ item.statistics.viewCount }}</span>
       </div>
     </div>
-    <div class="like">
+    <div class="like" *ngIf="item.statistics.likeCount">
       <img src="assets/svg/like.svg" alt="like" />
       <span>{{ item.statistics.likeCount }}</span>
     </div>

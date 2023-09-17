@@ -8,5 +8,5 @@ import { SearchItem } from './../search-item/search-item.component';
 })
 export class SearchResultsComponent {
 
-  @Input() items: SearchItem[];
+  @Input() items: SearchItem[] | null;
 }

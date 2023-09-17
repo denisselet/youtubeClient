@@ -4,8 +4,10 @@ import { SortTypes } from '../../models/sort.model';
 import { DataService } from '../../services/data.service';
 import { Observable, Subject, of } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap  } from 'rxjs/operators';
-import { SearchResponse } from '../../models/search-response.model';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { Store } from '@ngrx/store';
+import { loadData } from 'src/app/redux/actions/core.action';
+import { selectPosts } from 'src/app/redux/selectors/core.selector';
 
 @Component({
   selector: 'app-main',
@@ -15,29 +17,24 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 export class MainComponent {
   inputObservable$: Observable<string> | Observable<object>;
 
+  items$: Observable<SearchItem[]> = this.store.select(selectPosts);
+
   private inputSubject = new Subject<string>();
 
-  constructor(private dataService: DataService, private authService: AuthService) {
-    this.inputObservable$ = this.inputSubject.pipe(
+  constructor(private dataService: DataService, private authService: AuthService, private store: Store) {
+    this.inputSubject.pipe(
       debounceTime(500),
       distinctUntilChanged(),
       switchMap(value => {
         if (value.length >= 3) {
-          return this.dataService.getData(value);
-        } else {
-          return of('');
+          this.store.dispatch(loadData({ value }));
         }
+        return of('');
       })
-    );
-
-    this.inputObservable$.subscribe(resp => {
-      if (typeof resp !== 'string') {
-        this.items = (resp as SearchResponse).items;
-      }
-    });
+    ).subscribe();
   }
 
-  items: SearchItem[] = [];
+
 
   sortingType: { type: SortTypes; orderAsc: boolean; term: string } = {
     type: 'date',

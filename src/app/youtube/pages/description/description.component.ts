@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { SearchItem } from '../../models/search-item.model';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { DataService } from '../../services/data.service';
-import { SearchResponse } from '../../models/search-response.model';
-
+import { Store } from '@ngrx/store';
+import { selectGetPostById } from 'src/app/redux/selectors/core.selector';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-description',
@@ -12,23 +12,19 @@ import { SearchResponse } from '../../models/search-response.model';
   styleUrls: ['./description.component.scss'],
 })
 export class ModalDescriptionComponent implements OnInit {
-  isLoading = true;
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location,
+    private store: Store
+  ) {}
 
-  constructor(private route: ActivatedRoute, private location: Location, private dataService: DataService) {}
-
-  item: SearchItem;
+  item$: Observable<SearchItem | undefined>;
 
   selectedId: string;
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.selectedId = (params.get('selectedId') as string);
-
-      this.dataService.getOneVideo(this.selectedId).subscribe((resp) => {
-        this.item = (resp as SearchResponse).items[0];
-        this.isLoading = false;
-      });
-    });
+    const id = this.route.snapshot.params.selectedId;
+    this.item$ = this.store.select(selectGetPostById(id));
   }
 
   navigateToBack() {

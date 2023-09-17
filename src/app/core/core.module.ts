@@ -1,5 +1,5 @@
 import { NgModule, Provider } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { AppComponent } from '../app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SearchItemComponent } from '../youtube/components/search/search-item/search-item.component';
@@ -16,6 +16,11 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/core.interceptor';
 import { AuthService } from './../auth/services/auth.service';
 import { AdminComponent } from './pages/admin/admin.component';
+// import { appReducer } from '../redux/reducers/core.reducer';
+// import { StoreModule } from '@ngrx/store';
+// import { EffectsModule } from '@ngrx/effects';
+// import { DataEffects } from '../redux/effects/core.effect';
+
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -36,7 +41,9 @@ const INTERCEPTOR_PROVIDER: Provider = {
     ModalDescriptionComponent,
     AdminComponent,
   ],
-  imports: [CommonModule, BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule],
+  imports: [CommonModule, BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule,
+    AsyncPipe,
+  ],
   providers: [INTERCEPTOR_PROVIDER, AuthService]
 })
 export class CoreModule {}

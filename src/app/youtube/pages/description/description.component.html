@@ -1,5 +1,4 @@
-<div *ngIf="isLoading">Loading...</div>
-<div class="modal-wrapper" *ngIf="!isLoading">
+<div class="modal-wrapper" *ngIf="item$ | async as item">
   <div class="back">
     <button (click)="navigateToBack()"><</button>
   </div>

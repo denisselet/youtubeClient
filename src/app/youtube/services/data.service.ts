@@ -17,6 +17,8 @@ export class DataService {
   getData(search: string) {
     return this.fetchData1(search).pipe(
       switchMap((response1) => {
+        this.fetchData2(response1).subscribe((item) => console.log(item));
+
         return this.fetchData2(response1);
       })
     );

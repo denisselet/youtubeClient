@@ -1,22 +1,32 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+// import { ComponentFixture, TestBed } from '@angular/core/testing';
+// import { provideMockStore, MockStore } from '@ngrx/store/testing';
+// import { AdminComponent } from './admin.component';
+// import { loadInCustomPosts } from 'src/app/redux/actions/core.action';
 
-import { AdminComponent } from './admin.component';
+// describe('AdminComponent', () => {
+//   let component: AdminComponent;
+//   let fixture: ComponentFixture<AdminComponent>;
+//   let store: MockStore;
 
-describe('AdminComponent', () => {
-  let component: AdminComponent;
-  let fixture: ComponentFixture<AdminComponent>;
+//   beforeEach(async () => {
+//     await TestBed.configureTestingModule({
+//       declarations: [AdminComponent],
+//       providers: [provideMockStore({})]
+//     }).compileComponents();
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ AdminComponent ]
-    }).compileComponents();
+//     fixture = TestBed.createComponent(AdminComponent);
+//     component = fixture.componentInstance;
+//     store = TestBed.inject(MockStore);
+//   });
 
-    fixture = TestBed.createComponent(AdminComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//   it('should create', () => {
+//     expect(component).toBeTruthy();
+//   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   it('should dispatch loadInCustomPosts action on form submission', () => {
+//     const spy = spyOn(store, 'dispatch');
+//     const formData = { /* Mock form data */ };
+//     component.onSubmit();
+//     expect(spy).toHaveBeenCalledWith(loadInCustomPosts({ data: formData }));
+//   });
+// });

@@ -7,7 +7,7 @@ export class AuthInterceptor implements HttpInterceptor {
     const cloned = req.clone({
       url: `${environment.API_URL}/${req.url}`,
       setParams: {
-        'key': 'AIzaSyBtvd_0ahfOAYQr9ZI6Lu7bgp5in9QDXsU',
+        'key': 'AIzaSyAJLHX8kMUZlntyrrI89OMt1F3pLhsvxyA',
       }
     });
 
